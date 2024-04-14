@@ -48,8 +48,8 @@ require "../controller/medicine-data.php";
         </tr>
         </thead>
         <?php
-            if ($done-> num_rows > 0){
-                while ($row = $done->fetch_assoc()){
+            if ($result-> num_rows > 0){
+                while ($row = $result->fetch_assoc()){
 
                     ?>
                         <tr>
@@ -133,7 +133,10 @@ require "../controller/medicine-data.php";
         <a href="?page-nr=<?php echo $pages;?>">Last</a>
     </div>
 </div>
-
+<br><br>
+<footer class="Footer" id="Footer">
+    &copy;copyright <b>MEDSOFT</b>. All Rights Reserved <br> Design by 💙 <b>medsoft</b>
+</footer>
 
 <div class="medicineEntry" id="medicineEntry" style="display: none">
     <form action="../controller/Add-medicine-controller.php" method="post">
@@ -202,9 +205,7 @@ require "../controller/medicine-data.php";
     </form>
 </div>
 
-<!--<footer class="Footer" id="Footer">-->
-<!--    &copy;copyright <b>MEDSOFT</b>. All Rights Reserved <br> Design by 💙 <b>medsoft</b>-->
-<!--</footer>-->
+
 
 <script>
     function openBatchEntry(medName, id) {

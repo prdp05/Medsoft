@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
+<div class="container">
 <body>
 <header>
     <h1>Need Help</h1>
@@ -64,6 +65,8 @@
 
     </form>
 </section>
+</div>
+<br>
 <footer class="Footer">
     &copy;copyright <b>MEDSOFT</b>. All Rights Reserved <br> Design by 💙 <b>medsoft</b>
 </footer>

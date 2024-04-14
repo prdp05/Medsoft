@@ -1,86 +1,50 @@
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    width: 100%;
-    margin-bottom: 100px;
+body{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0%;
 }
-.success-color{
-    color: #45a049;
-}
-.failed-color{
-    color: red;
-}
-
 header {
     background-color: #3468C0;
     color: white;
     text-align: center;
     width: 90%;
-    margin-top: 20px;
-}
-.medicineAlreadyExist{
-    color: red;
-}
-.medicineInserted{
-    color: green;
-}
-.container {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    padding: 20px;
-    width: 90%;
-    box-sizing: border-box;
-}
-
-button {
-    background-color: #3468C0;
-    color: white;
-    border: none;
-    padding: 10px 15px;
+    margin: 20px 60px;
     border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    transition: background-color 0.3s ease;
+    /*padding: 0.5px;*/
 }
 
-button:hover {
-    background-color: #214a8c;
+.low-stockBody{
+    margin: 30px;
+    box-shadow: 5px 3px 10px rgb(0 0 0 / 0.2);;
 }
-
-table {
+.low-stockBody table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
 }
 
-th, td {
+.low-stockBody th, td {
     padding: 15px;
     border: 1px solid #ddd;
     text-align: left;
 }
 
-th {
+
+
+.low-stockBody th {
     background-color: #3468C0;
     color: white;
 }
 
-input[type="text"] {
+
+.low-stockBody input[type="text"] {
     padding: 10px;
     margin-bottom: 10px;
     width: 100%;
     box-sizing: border-box;
 }
 
-input[type="submit"] {
+.low-stockBody input[type="submit"] {
     background-color: #214a8c;
     color: white;
     border: none;
@@ -92,10 +56,9 @@ input[type="submit"] {
     transition: background-color 0.3s ease;
 }
 
-input[type="submit"]:hover {
+.low-stockBody input[type="submit"]:hover {
     background-color: #0d2d5c;
 }
-
 .modal {
     display: none;
     position: fixed;
@@ -140,90 +103,9 @@ input[type="submit"]:hover {
     display: flex;
 }
 
-.delete-btn {
-    background-color: #FF5733;
-    margin-left : 10px;
-}
 
 .batch-entry-btn:hover {
     background-color: #45a049;
-}
-
-.delete-btn:hover {
-    background-color: #e0442f;
-}
-
-
-
-/*Medicine Entry */
-.medicineEntry {
-    height: 300px;
-    width: 700px;
-    border: 1px solid black;
-    border-radius: 5px;
-}
-
-.medicineName input {
-    padding: 15px;
-    width: 600px;
-    margin: 0px 20px;
-    border-radius: 5px;
-}
-
-.medicineInfoEntry {
-    display: flex;
-    border-bottom: rgb(61, 60, 60);
-}
-
-.medicineInfoEntry .company input {
-    padding: 15px;
-    margin: 20px;
-    border-radius: 5px;
-    width: 280px;
-}
-
-.unit input {
-    padding: 15px;
-    margin: 20px 10px;
-    border-radius: 5px;
-}
-
-.moneyType select {
-    padding: 15px;
-    margin: 20px;
-    border-radius: 5px;
-}
-
-.moneyType option {
-    padding: 15px;
-    margin: 20px;
-    border-radius: 5px;
-}
-
-.saveMedicine button {
-    padding: 15px;
-    margin-left: 530px;
-    margin-top: 10px;
-    background-color: #3468c0;
-    color: white;
-    border-radius: 5px;
-}
-
-.saveMedicine button:hover {
-    background-color: rgb(42, 42, 199);
-
-}
-
-.Footer{
-    text-align: center;
-    align-items: center;
-    width: 90%;
-    padding: 20px;
-    border-top: 1px solid rgb(46, 29, 122);
-    margin: 20px;
-}
-.Footer b{
-    color: #3468C0;
 }
 
 /*Batch Entry*/
@@ -250,6 +132,7 @@ input[type="submit"]:hover {
     width: 700px;
     border: 1px solid black;
     border-radius: 5px;
+    margin: 10px;
 }
 
 #batchEntry{
@@ -311,59 +194,14 @@ input[type="submit"]:hover {
 .process .reset:hover{
     background-color: rgb(157, 156, 156);
 }
-
-
-/*Pagination*/
-.page-info{
-    margin: 15px 0;
-    font-size: 14px;
-}
-
-.pagination{
-    display: flex;
+.Footer{
+    text-align: center;
     align-items: center;
-    justify-content: flex-start;
-    gap: 15px;
+    width: 93%;
+    padding: 20px;
+    border-top: 1px solid rgb(46, 29, 122);
+    margin: 20px;
 }
-
-.pagination a{
-    font-size: 14px;
-    text-decoration: none;
-    border: 2px solid #3468C0;
-    border-radius: 10px;
-    width: 40px;
-    /*height: 30px;*/
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.Footer b{
+    color: #3468C0;
 }
-.pagination a:hover{
-    border: 2px solid #3468C0;
-}
-
-.pagination .page-numbers{
-    display: flex;
-    gap: 5px;
-}
-
-.active{
-    background-color: #3468C0;
-    /*border: 2px solid #3468C0;*/
-    color: white;
-}
-
-
-
-@media screen and (max-width: 600px) {
-    table {
-        font-size: 14px;
-    }
-
-    th, td {
-        padding: 10px;
-    }
-}
-
-
-

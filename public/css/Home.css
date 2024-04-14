@@ -70,6 +70,7 @@ padding-right: 10px;
      border: none;
      outline: none;
      overflow: scroll;
+     background-color: #f0f0f0;
      /*padding: 20px;*/
  }
  @media screen and (max-width: 575.98px){

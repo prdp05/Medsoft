@@ -18,7 +18,12 @@
         </div>
 
         <div class="user-profile">
-            <img src="../public/images/profile.png" alt="Profile Picture">
+<!--            <img src="../public/images/profile.png" alt="Profile Picture">-->
+
+            <img src="../public/images/<?php echo $row['PROFILEPICTURE']?>">
+
+
+
             <span class="name"><?php echo $row['FULLNAME'] ?></span>
             <i class="fa-solid fa-caret-down" id="dropdown-icon" onclick="toggleUserControl()"></i>
             <div class="user-control" id="user-control">

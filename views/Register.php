@@ -13,7 +13,7 @@
             <img src="../public/images/login-logo.png" width="80" alt="Logo">
         </div>
         <h2 style="color: #3468C0;">Register</h2>
-        <form action="../controller/Register-Controller.php" method="post">
+        <form action="../controller/Register-Controller.php" method="post" enctype="multipart/form-data">
             <label>
                 <input type="text" name="fname" placeholder="First Name" required>
             </label>
@@ -46,8 +46,8 @@
             </select>
 
             <label for="profile-picture">Profile Picture </label>
-            <input type="file" id="inputImage" Name="photo" placeholder="Select Profile Picture">
-<!--            <input type="submit" name="upload" id="upload" placeholder="upload">-->
+            <input type="file" id="prof-Img" name="prof-Img" placeholder="Select Profile Picture">
+<!--            <input type="submit" name="upload" Sid="upload" placeholder="upload">-->
 
             <button type="submit" >Register</button>
         </form>

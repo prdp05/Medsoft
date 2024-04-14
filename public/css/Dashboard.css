@@ -39,6 +39,16 @@ body {
     color: #555;
 }
 
+.card a{
+    text-decoration: none;
+    list-style: none;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #3468C0;
+    color: white;
+}
+
 .more-details-btn {
     /*position: absolute;*/
     /*bottom: 10px;*/
@@ -80,6 +90,7 @@ body {
     font-size: 20px;
     color: #555;
 }
+
 .Footer{
     text-align: center;
     align-items: center;
@@ -87,8 +98,17 @@ body {
     padding: 20px;
     border-top: 1px solid rgb(46, 29, 122);
     margin: 20px;
-    /*color: #3468C0;*/
 }
 .Footer b{
     color: #3468C0;
+}
+
+@media screen and (max-width: 600px) {
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
 }

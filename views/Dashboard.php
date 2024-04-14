@@ -1,5 +1,6 @@
 <?php session_start();?>
-<?php require "../controller/isLogin.php"?>
+<?php require "../controller/isLogin.php";?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,72 +10,39 @@
     <link rel="stylesheet" href="../public/css/Dashboard.css">
 </head>
 <body>
-
 <div class="content">
     <div class="section-title">Dashboard</div>
     <div class="card-container">
+
         <div class="card">
             <h2>Total Medicines</h2>
-            <p>Currently managing 500 medicines in the inventory.</p>
-            <button class="more-details-btn" onclick="showModal('Total Medicines', 'Details about total medicines.')">More Details</button>
+            <p>Currently managing <span id="totalRowCount"></span> medicines in the inventory.</p>
+            <a  <button class="totalMedicines" href="totalMedicine.php"> More Details </button> </a>
+
         </div>
+
         <div class="card">
             <h2>Low Stock Alert</h2>
-            <p>10 medicines are running low in stock. Please replenish.</p>
-            <button class="more-details-btn" onclick="showModal('Low Stock Alert', 'Details about low stock medicines.')">More Details</button>
-        </div>
-        <div class="card">
-            <h2>Expired Medicines</h2>
-            <p>5 medicines have expired. Take necessary actions.</p>
-            <button class="more-details-btn" onclick="showModal('Expired Medicines', 'Details about expired medicines.')">More Details</button>
-        </div>
-        <div class="card">
-            <h2>Expired Medicines</h2>
-            <p>5 medicines have expired. Take necessary actions.</p>
-            <button class="more-details-btn" onclick="showModal('Expired Medicines', 'Details about expired medicines.')">More Details</button>
-        </div>
-        <div class="card">
-            <h2>Expired Medicines</h2>
-            <p>5 medicines have expired. Take necessary actions.</p>
-            <button class="more-details-btn" onclick="showModal('Expired Medicines', 'Details about expired medicines.')">More Details</button>
-        </div><div class="card">
-            <h2>Expired Medicines</h2>
-            <p>5 medicines have expired. Take necessary actions.</p>
-            <button class="more-details-btn" onclick="showModal('Expired Medicines', 'Details about expired medicines.')">More Details</button>
-        </div><div class="card">
-            <h2>Expired Medicines</h2>
-            <p>5 medicines have expired. Take necessary actions.</p>
-            <button class="more-details-btn" onclick="showModal('Expired Medicines', 'Details about expired medicines.')">More Details</button>
-        </div>
-        <div class="card">
-            <h2>Expired Medicines</h2>
-            <p>5 medicines have expired. Take necessary actions.</p>
-            <button class="more-details-btn" onclick="showModal('Expired Medicines', 'Details about expired medicines.')">More Details</button>
-        </div><div class="card">
-            <h2>Expired Medicines</h2>
-            <p>5 medicines have expired. Take necessary actions.</p>
-            <button class="more-details-btn" onclick="showModal('Expired Medicines', 'Details about expired medicines.')">More Details</button>
-        </div><div class="card">
-            <h2>Expired Medicines</h2>
-            <p>5 medicines have expired. Take necessary actions.</p>
-            <button class="more-details-btn" onclick="showModal('Expired Medicines', 'Details about expired medicines.')">More Details</button>
-        </div><div class="card">
-            <h2>Expired Medicines</h2>
-            <p>5 medicines have expired. Take necessary actions.</p>
-            <button class="more-details-btn" onclick="showModal('Expired Medicines', 'Details about expired medicines.')">More Details</button>
+            <p> <span id="lowStockCount"></span> medicines are running low in stock. Please replenish.</p>
+            <a  <button class="lowStockBtn" href="lowStock.php"> More Details </button> </a>
         </div>
 
+        <div class="card">
+            <h2>Expired Medicines</h2>
+            <p> <span id="expiryRowCount"></span> medicines have expired. Take necessary actions.</p>
+            <a  <button class="totalMedicines" href="expiryDate.php"> More Details </button> </a>
+        </div>
+
+        <div class="card">
+            <h2>Expired Medicines</h2>
+            <p>5 medicines have expired. Take necessary actions.</p>
+            <button class="more-details-btn" onclick="showModal('Expired Medicines', 'Details about expired medicines.')">More Details</button>
+        </div>
 
     </div>
 </div>
 
-<div class="modal" id="myModal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2 id="modalTitle"></h2>
-        <p id="modalContent"></p>
-    </div>
-</div>
+
 
 <footer class="Footer">
     &copy;copyright <b>MEDSOFT</b>. All Rights Reserved <br> Design by 💙 <b>medsoft</b>
@@ -97,6 +65,49 @@
             closeModal();
         }
     });
+
+    // For count Total medicine
+    fetch('totalMedicine.php')
+        .then(response => response.text())
+        .then(php => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(php, 'text/html');
+            const rowCount = doc.querySelectorAll('table tr').length;
+            var rowCountSpan = document.getElementById('totalRowCount');
+            rowCountSpan.textContent = rowCount;
+        })
+        .catch(error => {
+            console.log('Error fetching data:', error);
+        });
+
+// For count low stock medicine
+    fetch('lowStock.php')
+        .then(response => response.text())
+        .then(php => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(php, 'text/html');
+            const rowCountt = doc.querySelectorAll('table tr').length;
+            var rowCounttSpan = document.getElementById('lowStockCount');
+            rowCounttSpan.textContent = rowCountt - 1;
+        })
+        .catch(error => {
+            console.log('Error fetching data:', error);
+        });
+
+// For Count expiry Medicine
+    fetch('expiryDate.php')
+        .then(response => response.text())
+        .then(php => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(php, 'text/html');
+            const rowCounttt = doc.querySelectorAll('table tr').length;
+            var rowCountttSpan = document.getElementById('expiryRowCount');
+            rowCountttSpan.textContent = rowCounttt - 1;
+        })
+        .catch(error => {
+            console.log('Error fetching data:', error);
+        });
+
 </script>
 </body>
 </html>

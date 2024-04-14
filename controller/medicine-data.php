@@ -22,6 +22,24 @@ if (isset($_GET['page-nr'])) {
     $i = $start+1;
 }
 
-$medicineFetchSql = "SELECT * FROM medicines INNER JOIN medsoft.medicinebatch m on medicines.SN = m.MED_ID LIMIT $start, $rows_per_page";
 
-$done = $conn->query($medicineFetchSql);
+// For Medicine Details
+$medicineFetchSqlMedicine = "SELECT * FROM medicines LIMIT $start, $rows_per_page";
+$result = $conn->query($medicineFetchSqlMedicine);
+
+
+// For Sales
+$medicineFetchSqlSales = "SELECT * FROM medicines INNER JOIN medsoft.medicinebatch m on medicines.SN = m.MED_ID LIMIT $start, $rows_per_page";
+$done = $conn->query($medicineFetchSqlSales);
+
+// For low stock
+$medicineFetchSqlLowStock = "SELECT * FROM medicines INNER JOIN medsoft.medicinebatch m on medicines.SN = m.MED_ID WHERE m.QUANTITY <= 10";
+$doneLowStock = $conn -> query($medicineFetchSqlLowStock);
+
+// For expiry date
+$medicineFetchSqlExpiryDate = "SELECT * FROM medicines INNER JOIN medicinebatch m on medicines.SN = m.MED_ID where EXPIRYDATE < CURRENT_DATE";
+$doneExpiryDate = $conn->query($medicineFetchSqlExpiryDate);
+
+
+$conn->close();
+

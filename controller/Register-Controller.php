@@ -15,16 +15,22 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $phone = trim($_REQUEST['phone']);
     $email = trim($_REQUEST['email']);
     $gender = $_REQUEST['gender'];
+    print_r($_FILES);
 
-    $pic = $_REQUEST['pic'];
+    $fileName = $_FILES['prof-Img']['name'];
+    $tempName = $_FILES['prof-Img']['tmp_name'];
+    $folder = '../public/images/'.$fileName;
 
+    $sql = "INSERT INTO users(FULLNAME, USERNAME, PASSWORD, PHONENUMBER, EMAIL, GENDER, PROFILEPICTURE) VALUES
+    ('$fullname', '$uname', '$hashedPassword', '$phone', '$email', '$gender', '$fileName')";
 
-    $sql = "INSERT INTO users(`FULLNAME`, `USERNAME`, `PASSWORD`, `PHONENUMBER`, `EMAIL`, `GENDER`)
-                VALUES('$fullname','$uname', '$hashedPassword', '$phone', '$email', '$gender') ";
 
     $done = $conn->query($sql);
 
+
+
     if ($done){
+        move_uploaded_file($tempName, $folder);
         header("Location: ../views/Login.php?registered='1'");
     } else{
         echo "Failed to register";
