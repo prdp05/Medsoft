@@ -1,5 +1,7 @@
 <?php session_start();?>
 <?php require "../controller/isLogin.php";?>
+<?php require "../controller/totalMedicine-data.php" ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,9 +16,14 @@
     <div class="section-title">Dashboard</div>
     <div class="card-container">
 
+<!--        --><?php
+//        if ($totaRowCount-> num_rows > 0){
+//        while ($row = $totaRowCount->fetch_assoc()){
+//
+//        ?>
         <div class="card">
             <h2>Total Medicines</h2>
-            <p>Currently managing <span id="totalRowCount"></span> medicines in the inventory.</p>
+            <p>Currently managing  <span id="totalRowCount"></span> medicines in the inventory.</p>
             <a  <button class="totalMedicines" href="totalMedicine.php"> More Details </button> </a>
 
         </div>

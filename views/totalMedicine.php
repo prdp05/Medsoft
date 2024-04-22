@@ -77,7 +77,7 @@ require "../controller/totalMedicine-data.php";
         }
         ?>
 
-        <!-- Output the page numbers -->
+        <!-- Output the page numbers ---->
         <div class="page-numbers">
             <?php
             if(!isset($_GET['page-nr'])){

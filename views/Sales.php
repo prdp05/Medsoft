@@ -1,6 +1,7 @@
 <?php session_start();?>
 <?php require "../controller/isLogin.php"?>
-<?php //require "../controller/fatchMedicine-sales.php" ?>
+<?php require "../controller/fatchMedicine-sales.php" ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,8 +13,8 @@
 </head>
 <body>
 <div class="container">
-<iframe src="salesMedicine.php" class="firstFrame" width="60%" height="900px"></iframe>
-<iframe src="printBill.php" class="SecondFrame" width="40%" height="900px" ></iframe>
+<iframe src="salesMedicine.php" class="firstFrame" width="60%" height="960px"></iframe>
+<iframe src="printBill.php" class="SecondFrame" width="40%" height="960px" ></iframe>
 </div>
 
 <footer class="Footer">

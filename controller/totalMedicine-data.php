@@ -26,7 +26,16 @@ if (isset($_GET['page-nr'])) {
 $medicineFetchSqlTotalMedicine = "SELECT * FROM medicines INNER JOIN medsoft.medicinebatch m on medicines.SN = m.MED_ID LIMIT $start, $rows_per_page";
 $done = $conn->query($medicineFetchSqlTotalMedicine);
 
+/* // For row count ---------------------->
+$sql = "SELECT COUNT(*) AS row_count FROM medicines INNER JOIN medsoft.medicinebatch m on medicines.SN = m.MED_ID";
+$totaRowCount = $done -> query($sql);
 
+// Check if the query was successful
+if ($totaRowCount) {
+    // Fetch the result as an associative array
+    $row = $totaRowCount->fetch_assoc();
 
+    // Get the row count
+    $row_count = $row['row_count'];
+}*/
 $conn->close();
-
