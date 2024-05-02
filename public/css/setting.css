@@ -46,6 +46,7 @@
     margin: 10px;
 
 
+
 }
 .edit-profile button:hover{
     cursor: pointer;
@@ -56,6 +57,11 @@
 }
 .edit-profile #delete-user{
     background-color: red;
+}
+.action a{
+    color: white;
+    text-decoration: none;
+
 }
 .add-user{
     height: 550px;

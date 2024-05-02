@@ -29,8 +29,8 @@
         <label>Email: pradeepbanjara92@gmail.com</label><br>
         <label>Gender: Male</label><br>
             <div class="action">
-            <li><a href=""><button type="submit" id="edit-user">Edit User</button></a></li>
-            <button type="submit" id="delete-user">Delete User</button>
+                <button id="delete-user"><li><a href="../controller/delete-user.php">Delete User</a></li></button>
+                <button id="edit-user"><li><a href="edit-user.php">Edit User</a></li></button>
             </div>
         </form>
 
