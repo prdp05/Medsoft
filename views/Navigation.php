@@ -18,17 +18,14 @@
         </div>
 
         <div class="user-profile">
-<!--            <img src="../public/images/profile.png" alt="Profile Picture">-->
 
             <img src="../public/images/<?php echo $row['PROFILEPICTURE']?>">
-
-
 
             <span class="name"><?php echo $row['FULLNAME'] ?></span>
             <i class="fa-solid fa-caret-down" id="dropdown-icon" onclick="toggleUserControl()"></i>
             <div class="user-control" id="user-control">
-                <li><a href="../controller/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></li>
-                <li><a href="#"><i class="fa-solid fa-gear"></i> Setting</a></li>
+                <li><a href="../controller/logout.php"><i class="fa-solid fa-right-from-bracket"></i> Logout </a></li>
+                <li><a href="setting.php"><i class="fa-solid fa-gear"></i> Setting </a></li>
                 <li><a href="NeedHelp.php"><i class="fa-solid fa-question"></i> Need Helps </a></li>
             </div>
         </div>

@@ -36,6 +36,9 @@ nav {
 
     margin-right: 10px;
 }
+.logo img:hover{
+    cursor: pointer;
+}
 
 .user-profile {
     display: flex;
@@ -43,11 +46,19 @@ nav {
     /*gap: 10px;*/
 }
 
+
 .user-profile img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin-right: 10px;
+}
+.user-profile img:hover{
+    cursor: pointer;
+}
+
+.user-profile i:hover{
+    cursor: pointer;
 }
 
 .user-profile li{

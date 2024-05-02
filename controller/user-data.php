@@ -8,8 +8,5 @@ if (isset($_SESSION['userId'])) {
     if ($done){
         $row = $done->fetch_assoc();
     }
-
 }
-//}
-
 
