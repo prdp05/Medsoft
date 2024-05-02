@@ -11,7 +11,7 @@
     <title>Sales Medicine</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../public/css/salesMedicine.css">
-    <script src="jquery.js"></script>
+    <script src="../public/js/jquery.js"></script>
 </head>
 
 <body>
@@ -50,7 +50,7 @@
                 <tr class="myModal" hidden>
                     <td colspan="4">
                         <input type="number" name="quantity" id="quantity" class ="quantity" placeholder="Quantity" required>
-                        <input type="number" name="discount" id="discount" class="discount" placeholder="Discount%" required>
+                        <input type="number" name="discount" id="discount" class="discount" placeholder="Discount%">
                         <input name="remark" id="remark" class="remark" cols="" rows="" placeholder="Remark" >
                         <button type="submit" class="salesBtn" id="salesBtn" onclick="openSubmitEntry()">Sales</button>
                     </td>
@@ -125,6 +125,8 @@
 <!--    &copy;copyright <b>MEDSOFT</b>. All Rights Reserved <br> Design by 💙 <b>medsoft</b>-->
 <!--</footer>-->
 
+
+<script src="../public/js/jquery.js"></script>
 <script>
     function searchMedicine() {
         var input, filter, table, tr, td, i;
@@ -257,10 +259,36 @@
 
     document.getElementById('salesBtn').addEventListener('click', function() {
         // Access the iframe element where file2.html will be loaded
-        var iframe2 = parent.document.getElementById(location.href = "econd");
+        var iframe2 = parent.document.getElementById(location.href = "");
         // Change the src attribute of iframe2 to load file2.html
-        iframe2.src = 'file2.html';
+        iframe2.src = 'printBill.php';
     });
+
+
+// Pass the bill values
+    function openSubmitEntry() {
+        var medicine = document.getElementById('medicineTable').value;
+        var quantity = document.getElementById('quantity').value;
+        var discount = document.getElementById('discount').value;
+        var remark = document.getElementById('remark').value;
+
+        // Send data to server using AJAX
+        $.ajax({
+            url: 'printBill.php',
+            type: 'post',
+            data: {
+                medicine: medicine,
+                quantity: quantity,
+                discount: discount,
+                remark: remark
+            },
+            success: function(response) {
+                // Display the bill in the bill container
+                $('#openPrinting').html(response);
+            }
+        });
+    }
+
 
 </script>
 

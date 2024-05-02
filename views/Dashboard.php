@@ -1,6 +1,7 @@
 <?php session_start();?>
 <?php require "../controller/isLogin.php";?>
 <?php require "../controller/totalMedicine-data.php" ?>
+<?php //require "../controller/medicine-data.php" ?>
 
 
 <!DOCTYPE html>
@@ -23,7 +24,8 @@
 //        ?>
         <div class="card">
             <h2>Total Medicines</h2>
-            <p>Currently managing  <span id="totalRowCount"></span> medicines in the inventory.</p>
+<!--            <span id="totalRowCount"></span>-->
+            <p>Currently managing  medicines in <span><?php  echo "$rowcounting";?> </span> the inventory.</p>
             <a  <button class="totalMedicines" href="totalMedicine.php"> More Details </button> </a>
 
         </div>
@@ -73,19 +75,19 @@
         }
     });
 
-    // For count Total medicine
-    fetch('totalMedicine.php')
-        .then(response => response.text())
-        .then(php => {
-            const parser = new DOMParser();
-            const doc = parser.parseFromString(php, 'text/html');
-            const rowCount = doc.querySelectorAll('table tr').length;
-            var rowCountSpan = document.getElementById('totalRowCount');
-            rowCountSpan.textContent = rowCount;
-        })
-        .catch(error => {
-            console.log('Error fetching data:', error);
-        });
+    // // For count Total medicine
+    // fetch('totalMedicine.php')
+    //     .then(response => response.text())
+    //     .then(php => {
+    //         const parser = new DOMParser();
+    //         const doc = parser.parseFromString(php, 'text/html');
+    //         const rowCount = doc.querySelectorAll('table tr').length;
+    //         var rowCountSpan = document.getElementById('totalRowCount');
+    //         rowCountSpan.textContent = rowCount;
+    //     })
+    //     .catch(error => {
+    //         console.log('Error fetching data:', error);
+    //     });
 
 // For count low stock medicine
     fetch('lowStock.php')
@@ -95,7 +97,7 @@
             const doc = parser.parseFromString(php, 'text/html');
             const rowCountt = doc.querySelectorAll('table tr').length;
             var rowCounttSpan = document.getElementById('lowStockCount');
-            rowCounttSpan.textContent = rowCountt - 1;
+            rowCounttSpan.textContent = rowCountt - 2;
         })
         .catch(error => {
             console.log('Error fetching data:', error);
@@ -109,7 +111,7 @@
             const doc = parser.parseFromString(php, 'text/html');
             const rowCounttt = doc.querySelectorAll('table tr').length;
             var rowCountttSpan = document.getElementById('expiryRowCount');
-            rowCountttSpan.textContent = rowCounttt - 1;
+            rowCountttSpan.textContent = rowCounttt - 2;
         })
         .catch(error => {
             console.log('Error fetching data:', error);

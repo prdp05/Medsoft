@@ -89,6 +89,7 @@
             </div>
         </div>
     </div>
+    </div>
         <script>
             function printBill() {
                 window.print();
@@ -130,6 +131,6 @@
                 };
             }
         </script>
-</div>
+
 </body>
 </html>

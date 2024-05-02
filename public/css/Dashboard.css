@@ -38,6 +38,9 @@ body {
 .card p {
     color: #555;
 }
+.card p span{
+    font-weight: bold;
+}
 
 .card a{
     text-decoration: none;
