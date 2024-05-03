@@ -1,6 +1,6 @@
 <?php //require "../php-config/Connection.php" ?>
 <?php require "../controller/user-data.php" ?>
-<?php require "../controller/Register-Controller.php" ?>
+<?php //require "../controller/Register-Controller.php" ?>
 
 
 <!doctype html>

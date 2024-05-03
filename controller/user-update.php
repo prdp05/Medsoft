@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     $fullname = $fname." ".$lname;
     $uname = $_POST['uname'];
     $password = trim($_POST['password']);
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+//    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
     $phone = trim($_POST['phone']);
     $email = trim($_POST['email']);
     $gender = $_POST['gender'];

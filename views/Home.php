@@ -27,6 +27,7 @@
 </div>
 <div id="content">
     <iframe src="./Dashboard.php" name="content-frame"></iframe>
+<!--    <iframe src="./setting.php"></iframe>-->
 </div>
 </div>
 
