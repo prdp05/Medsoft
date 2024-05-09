@@ -2,7 +2,7 @@
 require "../php-config/Connection.php";
 
 if($_SERVER['REQUEST_METHOD'] == "POST"){
-    print_r($_REQUEST);
+//    print_r($_REQUEST);
     $batchNumber = $_REQUEST['batchNo'];
     $expiry = date('Y-m-d', strtotime($_POST['expiry']));
 

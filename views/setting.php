@@ -1,5 +1,7 @@
-<?php //require "../controller/isLogin.php"?>
-<?php require "../controller/user-data.php" ?>
+<?php //require "../controller/isLogin.php";
+require "../controller/user-data.php" ;
+//print_r($row);
+?>
 
 
 <!doctype html>
@@ -19,15 +21,17 @@
     <div class="edit-profile">
         <h1>Edit Profile</h1>
 
-        <img src="../public/images/<?php echo $row['PROFILEPICTURE']?>">
+        <img src="../public/images/<?php
 
-        <span class="name"><?php echo $row['FULLNAME'] ?></span>
+        echo $row['PROFILEPICTURE'];?>">
+
+        <span class="name"><?php echo $row['FULLNAME']; ?></span>
 
         <form action="">
-        <span>Username: pradeep</span><br>
-        <label>Phone No: 9848744205</label><br>
-        <label>Email: pradeepbanjara92@gmail.com</label><br>
-        <label>Gender: Male</label><br>
+        <label for="username">Username: <?php echo $row['USERNAME']; ?></label><br>
+        <label for="phoneNumber">Phone Number: <?php echo $row['PHONENUMBER']; ?></label><br>
+        <label for="email">Email: <?php echo $row['EMAIL']; ?></label><br>
+        <label for="gender">Gender: <?php echo $row['GENDER']; ?></label><br>
             <div class="action">
                 <button id="delete-user"><li><a href="../controller/delete-user.php">Delete User</a></li></button>
                 <button id="edit-user"><li><a href="edit-user.php">Edit User</a></li></button>

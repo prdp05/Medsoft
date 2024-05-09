@@ -46,7 +46,7 @@
                     <td><button type="button" class="btnSales" onclick="openModal(<?php echo $i?>)"> <i class="fa-solid fa-caret-down"></i> </button></td>
 
                 </tr>
-                <form action="">
+                <form action="../controller/sold-medicine.php" method="post">
                 <tr class="myModal" hidden>
                     <td colspan="4">
                         <input type="number" name="quantity" id="quantity" class ="quantity" placeholder="Quantity" required>
@@ -251,7 +251,7 @@
     //     closeModal();
     // }
     document.getElementById("salesBtn").onclick = function () {
-        location.href = "printBill.php";
+        location.href = "addToBill.php";
     }
     // function closeSubmitEntry(){
     //     document.getElementById('openPrinting').style.display = 'none';
@@ -261,30 +261,28 @@
         // Access the iframe element where file2.html will be loaded
         var iframe2 = parent.document.getElementById(location.href = "");
         // Change the src attribute of iframe2 to load file2.html
-        iframe2.src = 'printBill.php';
+        iframe2.src = 'addToBill.php';
     });
 
 
-// Pass the bill values
-    function openSubmitEntry() {
-        var medicine = document.getElementById('medicineTable').value;
-        var quantity = document.getElementById('quantity').value;
-        var discount = document.getElementById('discount').value;
-        var remark = document.getElementById('remark').value;
+    // AJAX function to send selected medicine details to PHP script
+    function submitEntry() {
+        const quantity = document.getElementById('quantity').value;
+        const discount = document.getElementById('discount').value;
+        const remark = document.getElementById('remark').value;
 
         // Send data to server using AJAX
         $.ajax({
-            url: 'printBill.php',
+            url: 'addToBill.php', // PHP script to handle the request
             type: 'post',
             data: {
-                medicine: medicine,
                 quantity: quantity,
                 discount: discount,
                 remark: remark
             },
             success: function(response) {
-                // Display the bill in the bill container
-                $('#openPrinting').html(response);
+                // Optionally, update UI if needed
+                console.log(response);
             }
         });
     }

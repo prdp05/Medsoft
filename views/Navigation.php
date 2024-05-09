@@ -1,4 +1,4 @@
-<?php require "../controller/isLogin.php"?>
+<?php //require "../controller/isLogin.php"?>
 <?php require "../controller/user-data.php" ?>
 <!DOCTYPE html>
 <html lang="en">

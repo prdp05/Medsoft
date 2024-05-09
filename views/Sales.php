@@ -14,7 +14,7 @@
 <body>
 <div class="container">
 <iframe src="salesMedicine.php" class="firstFrame" width="60%" height="960px"></iframe>
-<iframe src="printBill.php" class="SecondFrame" width="40%" height="960px" ></iframe>
+<iframe src="addToBill.php" class="SecondFrame" width="40%" height="960px" ></iframe>
 </div>
 
 <footer class="Footer">
