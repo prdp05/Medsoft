@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
     $expiry = date('Y-m-d', strtotime($_POST['expiry']));
 
     $quantity = $_REQUEST['quantity'];
-    $mrp = $_REQUEST['mrp'];
+    $mrp = 0;
     $medId = $_REQUEST['medId'];
 
     $medicineDataSql = "SELECT * FROM medicines where SN = $medId";
@@ -15,22 +15,22 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
 
     $row = $done->fetch_assoc();
     if($row['MONEYTYPE'] == '2'){
-        $currency = 2;
+        $mrp = $_REQUEST['mrp'] * 1.6;
     } else if($row['MONEYTYPE'] == '1'){
-        $currency = 1;
+        $mrp = $_REQUEST['mrp'] ;
     } else{
         echo "EROOR";
     }
 //    echo "Hello";
     echo $expiry;
 
-    if ($currency){
-        $sql = "INSERT INTO medicinebatch(MED_ID, BATCHNUMBER, EXPIRYDATE, QUANTITY, MRP, CURRENCY_TYPE)
-        VALUES ($medId, '$batchNumber',STR_TO_DATE('$expiry','%Y-%m-%d') , $quantity, $mrp, $currency)  ";
+
+        $sql = "INSERT INTO medicinebatch(MED_ID, BATCHNUMBER, EXPIRYDATE, QUANTITY, MRP)
+        VALUES ($medId, '$batchNumber',STR_TO_DATE('$expiry','%Y-%m-%d') , $quantity, $mrp)  ";
         $conn->query($sql);
         header("Location: ../views/MedicineDetails.php?success=1");
         exit();
-    }
+
     header("Location: ../views/MedicineDetails.php?success=0");
     exit();
 }

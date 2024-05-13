@@ -13,8 +13,8 @@
 </head>
 <body>
 <div class="container">
-<iframe src="salesMedicine.php" class="firstFrame" width="60%" height="960px"></iframe>
-<iframe src="addToBill.php" class="SecondFrame" width="40%" height="960px" ></iframe>
+<iframe src="sales-medicine.php" class="firstFrame" width="58%" height="960px"></iframe>
+<iframe src="bill.php" class="SecondFrame" width="42%" height="960px" ></iframe>
 </div>
 
 <footer class="Footer">

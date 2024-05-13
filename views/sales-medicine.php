@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php session_start(); ?>
 <?php require "../controller/isLogin.php"; ?>
 <?php require "../controller/sales-data.php"; ?>
 
@@ -16,6 +16,15 @@
 
 <body>
 <div class="salesContainer" id="salesContainer">
+    <?php if (isset($_GET['success']) && $_GET['success'] == '1') {?>
+        <div style="background-color: green; color: #ffffff; padding: 10px 20px; display: flex;margin: 10px 0; justify-content: space-between; align-items: center; width: 100%;"><span style="flex: 1;">Successfully Added</span><button style="background-color: transparent; color: #721c24; border: none; cursor: pointer;" onclick="this.parentElement.style.display='none';">X</button></div>
+
+    <?php }?>
+    <?php if (isset($_GET['success']) && $_GET['success'] == '0') {?>
+        <div style="background-color: #f8d7da; color: #721c24;margin: 10px 0; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; width: 100%;"><span style="flex: 1;">Failed to add Medicine</span><button style="background-color: transparent; color: #721c24; border: none; cursor: pointer;" onclick="this.parentElement.style.display='none';">X</button></div>
+
+    <?php }?>
+
 
     <div class="search-bar">
         <input type="text" id="searchInput" class="search-input" placeholder="Search..." oninput="searchMedicine()">
@@ -40,22 +49,39 @@
                 ?>
 
                 <tr>
-                    <td><?php  echo $row['MEDICINENAME'] ?></td>
-                    <td><?php  echo $row['BATCHNUMBER'] ?></td>
-                    <td><?php  echo $row['QUANTITY'] ?></td>
+                    <td><?php  echo $row['MEDICINENAME']; ?></td>
+                    <td><?php  echo $row['BATCHNUMBER']; ?></td>
+                    <td><?php  echo $row['QUANTITY']; ?></td>
                     <td><button type="button" class="btnSales" onclick="openModal(<?php echo $i?>)"> <i class="fa-solid fa-caret-down"></i> </button></td>
 
                 </tr>
-                <form action="../controller/sold-medicine.php" method="post">
-                <tr class="myModal" hidden>
-                    <td colspan="4">
-                        <input type="number" name="quantity" id="quantity" class ="quantity" placeholder="Quantity" required>
-                        <input type="number" name="discount" id="discount" class="discount" placeholder="Discount%">
-                        <input name="remark" id="remark" class="remark" cols="" rows="" placeholder="Remark" >
-                        <button type="submit" class="salesBtn" id="salesBtn" onclick="openSubmitEntry()">Sales</button>
-                    </td>
-                </tr>
-                </form>
+
+                    <tr class="myModal" hidden>
+                        <td colspan="4">
+
+                            <form id="insertSalesDetails" action="../controller/insert.php" method="post">
+                            <input type="hidden" name="medId" id="medId" value="<?php echo $row['MED_ID']; ?>">
+                            <input type="number" name="quantity" id="quantity" class ="quantity" placeholder="Quantity" required>
+                            <input type="number" name="discount" id="discount" class="discount" placeholder="Discount %">
+                            <input type="text" name="remark" id="remark" class="remark" placeholder="Remark" >
+                            <button type="submit" value="submit" class="salesBtn" id="salesBtn" >Sales</button>
+                            </form>
+
+                        </td>
+                    </tr>
+
+        <script>
+
+            // $(document).ready(()=>{
+            //     $('#salesBtn').click((e)=>{
+            //         console.log(e);
+            //         console.log("hello");
+            //     })
+            // })
+
+        </script>
+
+
                 <?php $i++; } }?>
         </tbody>
     </table>
@@ -120,8 +146,6 @@
     </div>
 </div>
 
-
-<script src="../public/js/jquery.js"></script>
 <script>
     function searchMedicine() {
         var input, filter, table, tr, td, i;

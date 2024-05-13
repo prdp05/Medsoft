@@ -7,5 +7,4 @@ try {
         exit();
     }
 } catch (Exception $e){
-//
 }
