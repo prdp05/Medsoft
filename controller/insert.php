@@ -1,44 +1,18 @@
 <?php
-//session_start();
-//require('../php-config/connection.php');
-//
-////print_r($sql);
-//
-//if($_SERVER['REQUEST_METHOD']=='POST'){
-//    $medId = $_REQUEST['medId'] ;
-//    $quantity = intval($_REQUEST['quantity']);
-//    $discount =intval(0 &&  $_REQUEST['discount'])  ;
-//    $remark = " " &&  $_REQUEST['remark'] ;
-//}
-//$soldDataSql = $conn->query("SELECT * FROM medicines INNER JOIN medsoft.soldmedicine s on medicines.SN = s.MED_ID");
-//
-////     Insert into database or perform any necessary actions
-//$sql = "INSERT INTO soldmedicine( QUANTITY, DISCOUNT, REMARK, MED_ID) VALUES ( '$quantity', '$discount', '$remark', '$medId')";
-//$done = $conn->query($sql);
-//
-////// Check if quantity, discount, and remark are set in POST data
-////if(isset($_POST['quantity']) && isset($_POST['discount']) && isset($_POST['remark'])) {
-////    // Retrieve quantity, discount, and remark from POST data
-////    $quantity = $_POST['quantity'];
-////    $discount = $_POST['discount'];
-////    $remark = $_POST['remark'];
-////}
-///
-
 session_start();
 require('../php-config/connection.php');
 
 // Check if the request method is POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Check if all required fields are set in $_POST
-    if (isset($_POST['medId'], $_POST['quantity'])) {
-            $medId = $_REQUEST['medId'] ;
+    if (isset($_POST['batchId'], $_POST['quantity'])) {
+            $batchId = $_REQUEST['batchId'] ;
              $quantity = intval($_REQUEST['quantity']);
             $discount =intval( $_REQUEST['discount'])  ;
             $remark = $_REQUEST['remark']  ;
 
         // Insert data into the database
-        $sql = "INSERT INTO soldmedicine(QUANTITY, DISCOUNT, REMARK, MED_ID) VALUES  ('$quantity','$discount',  '$remark', '$medId')";
+        $sql = "INSERT INTO soldmedicine(QUANTITY, DISCOUNT, REMARK, B_ID) VALUES  ('$quantity','$discount',  '$remark', '$batchId')";
 
         if ($conn->query($sql) === TRUE) {
             // Data insertion successful

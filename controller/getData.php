@@ -3,10 +3,13 @@ session_start();
 require('../php-config/Connection.php');
 
 //$sql = $conn->query("SELECT * FROM medicines INNER JOIN medsoft.soldmedicine s on medicines.SN = s.MED_ID");
+//$sql = "SELECT * FROM medicinebatch
+//INNER JOIN medicines ON medicinebatch.MED_ID = medicines.SN
+//INNER JOIN soldmedicine ON medicinebatch.MED_ID = soldmedicine.MED_ID";
 
 $sql = "SELECT * FROM medicines
-INNER JOIN medicinebatch ON medicines.SN = medicinebatch.MED_ID
-INNER JOIN soldmedicine ON medicines.SN = soldmedicine.MED_ID";
+INNER JOIN medsoft.medicinebatch m on medicines.SN = m.MED_ID
+INNER JOIN soldmedicine s ON s.B_ID = m.B_SN";
 $done = $conn -> query($sql);
 
 $soldmedicine = array();

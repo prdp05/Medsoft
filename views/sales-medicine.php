@@ -46,12 +46,21 @@
         if ($done-> num_rows > 0){
             $i = 0;
             while ($row = $done->fetch_assoc()){
+                $disable = (int)$row['QUANTITY']>0 ? "disabled" : "" ;
+                $bid = $row['B_SN'];
+                if (!$disable){
+                    $deleteBatchMed = "DELETE FROM medicinebatch WHERE B_SN = '$bid'";
+                    $conn->query($deleteBatchMed);
+                }
+                $quantity = (int)$row['QUANTITY']>0 ? $row['QUANTITY'] : "OUT OF STOCK";
                 ?>
 
                 <tr>
                     <td><?php  echo $row['MEDICINENAME']; ?></td>
                     <td><?php  echo $row['BATCHNUMBER']; ?></td>
-                    <td><?php  echo $row['QUANTITY']; ?></td>
+                    <td>
+                        <?php echo $quantity?>
+                    </td>
                     <td><button type="button" class="btnSales" onclick="openModal(<?php echo $i?>)"> <i class="fa-solid fa-caret-down"></i> </button></td>
 
                 </tr>
@@ -60,11 +69,11 @@
                         <td colspan="4">
 
                             <form id="insertSalesDetails" action="../controller/insert.php" method="post">
-                            <input type="hidden" name="medId" id="medId" value="<?php echo $row['MED_ID']; ?>">
+                            <input type="hidden" name="batchId" id="medId" value="<?php  echo $row['B_SN']; ?>">
                             <input type="number" name="quantity" id="quantity" class ="quantity" placeholder="Quantity" required>
                             <input type="number" name="discount" id="discount" class="discount" placeholder="Discount %">
                             <input type="text" name="remark" id="remark" class="remark" placeholder="Remark" >
-                            <button type="submit" value="submit" class="salesBtn" id="salesBtn" >Sales</button>
+                            <button type="submit" value="submit"  class="salesBtn" id="salesBtn" >Sales</button>
                             </form>
 
                         </td>

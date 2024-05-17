@@ -22,7 +22,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         echo "EROOR";
     }
 //    echo "Hello";
-    echo $expiry;
+//    echo $expiry;
 
 
         $sql = "INSERT INTO medicinebatch(MED_ID, BATCHNUMBER, EXPIRYDATE, QUANTITY, MRP)
