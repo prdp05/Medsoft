@@ -42,7 +42,7 @@ require "../controller/user-data.php" ;
 
     <div class="add-user">
         <li><a href="Register.php"><i class="fa-solid fa-user-plus"></i></a></li>
-        <h3>Create new account</h3>
+        <h3>Add new User</h3>
     </div>
 </div>
 </body>
