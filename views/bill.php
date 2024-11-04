@@ -17,10 +17,12 @@
     <div class="openPrinting-popup">
 <div class="container">
     <div class="header">
-
         <h1>Medicine Bill</h1>
 <!--        <p>Bill Number: --><?//php?><!--</p>-->
-        <p>Date: <?php echo date("Y-m-d")?></p>
+<div class="dateAndBillNo">
+        <div class="date">Date: <?php echo date("Y-m-d")?></div>
+        <div class="BillNo">Bill Number: <p> <?php echo(rand(100000,200000)); ?> </p> </div>
+        </div>
     </div>
 
     <div class="bill-body">
@@ -119,9 +121,9 @@
                     let medName = response[i].MEDICINENAME;
                         let expDate = response[i].EXPIRYDATE;
                         let quantity = response[i].QUANTITY;
-                        gross+= parseInt( response[i].MRP);
+                        gross+= parseInt( response[i].MRP * response[i].QUANTITY);
                     let discountPercentage = parseInt(response[i].DISCOUNT);
-                    let discountAmount =  discountPercentage * parseInt(response[i].MRP) /100;
+                    let discountAmount =  discountPercentage * parseInt(response[i].MRP * response[i].QUANTITY) /100;
                     discount+= discountAmount;
                         let price = response[i].MRP;
                     list += '<tr><td>' + id + "</td><td>" + medName + "</td><td>" + expDate + "</td><td>" + quantity + "</td><td>" + price + `</td><td ><button onclick='deleteMedFromBill(${response[i].S_ID})' style="background-color: red; color: #ffffff; outline: none; border: none">X</button></td></tr>`;

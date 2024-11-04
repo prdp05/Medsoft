@@ -28,6 +28,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST"){
         $sql = "INSERT INTO medicinebatch(MED_ID, BATCHNUMBER, EXPIRYDATE, QUANTITY, MRP)
         VALUES ($medId, '$batchNumber',STR_TO_DATE('$expiry','%Y-%m-%d') , $quantity, $mrp)  ";
         $conn->query($sql);
+        
         header("Location: ../views/MedicineDetails.php?success=1");
         exit();
 

@@ -31,7 +31,7 @@ CREATE TABLE `currency` (
   `C_ID` int NOT NULL,
   `C_name` varchar(20) DEFAULT NULL,
   `C_VALUE` decimal(3,2) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 --
 -- Dumping data for table `currency`
@@ -55,7 +55,7 @@ CREATE TABLE `medicinebatch` (
   `QUANTITY` int DEFAULT NULL,
   `MRP` int DEFAULT NULL,
   `CURRENCY_TYPE` int DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 --
 -- Dumping data for table `medicinebatch`
@@ -102,7 +102,7 @@ CREATE TABLE `medicines` (
   `COMPANYNAME` varchar(255) NOT NULL,
   `UNIT` varchar(255) NOT NULL,
   `MONEYTYPE` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 --
 -- Dumping data for table `medicines`
@@ -169,7 +169,7 @@ CREATE TABLE `sales` (
   `MEDICINENAME` varchar(255) NOT NULL,
   `BATCHNUMBER` varchar(255) NOT NULL,
   `REMAININGQUANTITY` int NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ;
 
 -- --------------------------------------------------------
 
@@ -186,7 +186,7 @@ CREATE TABLE `users` (
   `EMAIL` varchar(255) NOT NULL,
   `GENDER` varchar(100) NOT NULL,
   `PROFILEPICTURE` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+);
 
 --
 -- Dumping data for table `users`

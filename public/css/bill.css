@@ -25,10 +25,23 @@ body {
     margin-bottom: 5px;
 }
 
-.header p {
+/* .header p {
     font-size: 18px;
     margin-bottom: 0;
+} */
+
+.dateAndBillNo{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    
 }
+.dateAndBillNo .BillNo p{
+    color: red;
+
+
+}
+
 
 .bill-body {
     padding: 5px;
