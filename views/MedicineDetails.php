@@ -151,15 +151,27 @@ require "../controller/medicine-data.php";
                     <input type="text" name="companyName" id="companyName" placeholder="Company Name" required>
                 </div>
                 <div class="unit">
-                    <input type="text" name="unit" id="unit" placeholder="Unit" required>
+                    <input type="text" name="unit" id="unit" placeholder="Category" required>
                 </div>
+                <!-- <div class="unit">
+                    <select name="unit" id="unit" aria-placeholder="Category" require">
+                        <option value="Tablet">TABLET</option>
+                        <option value="Capsule">CAPUSLE</option>
+                        <option value="Syrup">SYRUP</option>
+                        <option value="Drop">DROP</option>
+                        <option value="Powder">POWDER</option>
+                        <option value="Cream">CREAM</option>
+                        <option value="Injection">INJECTION</option>
+                    </select>
+                </div> -->
                 <div class="moneyType">
                     <select name="moneyType" id="moneyType" aria-placeholder="Select type" required>
                         <option value="Nepali">NPR</option>
                         <option value="Indian">INR</option>
                     </select>
                     </label>
-                </div> </div>
+                </div>
+            </div>
 
 
             <div class="saveMedicine">
@@ -174,27 +186,27 @@ require "../controller/medicine-data.php";
     <form action="../controller/Submit-batch-entry.php" method="post">
         <div class="batchEntry-popup">
             <span class="close" onclick="closeBatchEntry()">&times;</span>
-        <h1>New Batch Entry of....</h1>
-            <h3>Medicine Name:- <span id="entryMedicineName"></span></h3>
+        <h1>New Batch Entry of <span id="entryMedicineName"></span></h1>
         <div class="upInfo">
             <div class="batchNo">
                 <label for="batch_No">Batch No: </label>
-                <input type="text" name="batchNo" id="batchNo" placeholder="Batch Number" >
+                <input type="text" name="batchNo" id="batchNo" placeholder="Batch Number" require>
             </div>
 
             <div class="expiry">
                 <label for="date">Expiry: </label>
-                <input type="date" name="expiry" id="expiry">
+                <input type="date" name="expiry" id="expiry" min="<?php echo date('Y-m-d'); ?>" required>
             </div>
         </div>
         <div class="downInfo">
             <div class="quantity">
                 <label for="quantity">Quantity: </label>
-                <input type="number" name="quantity" id="quantity" placeholder="Quantity">
+<input type="number" name="quantity" id="quantity" placeholder="Quantity" min="1" step="1" oninput="validity.valid||(value='');" required>
             </div>
             <div class="MRP">
                 <label for="mrp">MRP: </label>
-                <input type="number" name="mrp" id="mrp" placeholder="MRP">
+<input type="number" name="mrp" id="mrp" placeholder="MRP" required min="0" step="0.01" oninput="validity.valid||(value='');">
+
             </div>
         </div>
         <div class="process">
@@ -267,8 +279,6 @@ require "../controller/medicine-data.php";
     // document.getElementById('batchEntry').style.display = 'none';
 
 
-
-
     function searchMedicine() {
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("searchInput");
@@ -288,6 +298,7 @@ require "../controller/medicine-data.php";
             }
         }
     }
+    
 </script>
 <script src="../public/js/medicineDetails.js"></script>
 

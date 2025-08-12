@@ -1,12 +1,14 @@
-<?php session_start();?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Page</title>
     <link rel="stylesheet" href="../public/css/Register.css">
 </head>
+
 <body>
     <div id="registration-container">
         <div class="login-logo">
@@ -47,9 +49,9 @@
 
             <label for="profile-picture">Profile Picture </label>
             <input type="file" id="prof-Img" name="prof-Img" placeholder="Select Profile Picture">
-<!--            <input type="submit" name="upload" Sid="upload" placeholder="upload">-->
+            <!--            <input type="submit" name="upload" Sid="upload" placeholder="upload">-->
 
-            <button type="submit" >Register</button>
+            <button type="submit">Register</button>
         </form>
         <p>Already have an account? <a href="Login.php">Login here</a></p>
     </div>
@@ -69,4 +71,5 @@
         }
     </script>
 </body>
+
 </html>

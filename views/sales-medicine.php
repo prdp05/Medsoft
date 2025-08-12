@@ -70,8 +70,8 @@
 
                             <form id="insertSalesDetails" action="../controller/insert.php" method="post">
                             <input type="hidden" name="batchId" id="medId" value="<?php  echo $row['B_SN']; ?>">
-                            <input type="number" name="quantity" id="quantity" class ="quantity" placeholder="Quantity" required>
-                            <input type="number" name="discount" id="discount" class="discount" placeholder="Discount %">
+                            <input type="number" name="quantity" id="quantity" class="quantity" placeholder="Quantity" required min="1" step="1" oninput="validity.valid||(value='');">
+                            <input type="number" name="discount" id="discount" class="discount" placeholder="Discount %" min="0" max="100" step="0.01" oninput="validity.valid||(value='');">
                             <input type="text" name="remark" id="remark" class="remark" placeholder="Remark" >
                             <button type="submit" value="submit"  class="salesBtn" id="salesBtn" >Sales</button>
                             </form>

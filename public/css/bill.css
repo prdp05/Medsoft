@@ -38,6 +38,7 @@ body {
 }
 .dateAndBillNo .BillNo p{
     color: red;
+    font-weight: bold;
 
 
 }

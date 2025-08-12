@@ -13,7 +13,10 @@
     <script src="../public/js/jquery.js"></script>
 </head>
 <body>
+    
 <div class="openPrinting" id="openPrinting" style="display: flex">
+
+<div id="printableArea">
     <div class="openPrinting-popup">
 <div class="container">
     <div class="header">
@@ -79,6 +82,11 @@
             </div>
         </form>
     </div>
+
+            
+</div>
+
+
     <div id="records"></div>
 
 </div>

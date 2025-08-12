@@ -42,12 +42,6 @@
             <a  <button class="totalMedicines" href="expiryDate.php"> More Details </button> </a>
         </div>
 
-        <div class="card">
-            <h2>Expired Medicines</h2>
-            <p>5 medicines have expired. Take necessary actions.</p>
-            <button class="more-details-btn" onclick="showModal('Expired Medicines', 'Details about expired medicines.')">More Details</button>
-        </div>
-
     </div>
 </div>
 

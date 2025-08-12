@@ -23,5 +23,3 @@ if (isset($_GET['page-nr'])) {
 }
 $medicineFetchSqlSales = "SELECT * FROM medicines INNER JOIN medsoft.medicinebatch m on medicines.SN = m.MED_ID LIMIT $start, $rows_per_page";
 $done = $conn->query($medicineFetchSqlSales);
-
-
